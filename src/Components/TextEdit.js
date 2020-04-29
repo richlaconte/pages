@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import TextEditToolBar from './TextEditToolBar';
+import ColSettings from './Settings/ColSettings';
+import ContentEditable from 'react-contenteditable';
 
 export default function TextEdit(props) {
 
@@ -30,13 +32,15 @@ export default function TextEdit(props) {
         props.updateContent(e);
     }
 
-    if (editing) {
+
+    if (true) {
         return (
             <div className="col" style={{ border: '1px red dashed' }} onBlur={(e) => setEditing(false)}>
-                <input value={props.content} style={style}
+                <textarea value={props.content} style={style}
                     onChange={(e) => textChange(e.target.value)}
                     autoFocus
-                ></input>
+                ></textarea>
+                <ColSettings />
             </div>
         );
     } else {
@@ -46,6 +50,15 @@ export default function TextEdit(props) {
             </div>
         );
     }
+    /*
+    return (
+        <ContentEditable innerRef={this.contentEditable}
+            html={props.content}
+            disabled={false}
+            onChange={(e) => textChange(e.target.value)}
+        />
+    )
+    */
 
 
 }

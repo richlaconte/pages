@@ -40,3 +40,7 @@
 *:focus {
   outline: none;
 }
+
+.col:hover {
+  border: 1px dashed grey;
+}

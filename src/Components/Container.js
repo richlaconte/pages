@@ -14,11 +14,12 @@ export default function Container(props) {
                 containerIndex={props.index}
                 row={row}
                 updates={props.updates}
+                setActive={props.setActive}
             />)
     }
 
     return (
-        <div className="container" style={{ border: '5px solid red' }}>
+        <div className="container" >
             {
                 content
             }

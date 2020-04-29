@@ -14,15 +14,19 @@ export default function Preview(props) {
                 index={index}
                 container={container}
                 updates={props.updates}
+                setActive={props.setActive}
             />)
     }
 
     return (
-        <div className="container-flex">
-            {
-                content
-            }
-            <button onClick={() => props.updates.appendContainer()}>Append container</button>
+        <div className="col-9" >
+            <div className="container-flex">
+                {
+                    content
+                }
+                <button onClick={() => props.updates.appendContainer()}>Append container</button>
+            </div>
         </div>
+
     );
 }

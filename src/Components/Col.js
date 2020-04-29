@@ -5,6 +5,10 @@ export default function Col(props) {
 
     const [col, setCol] = useState(props.col);
 
+    let style = {
+        height: props.col.style.height.value + '' + props.col.style.height.type
+    }
+
     let content = '';
     if (col.content) {
         content = col.content;
@@ -15,7 +19,10 @@ export default function Col(props) {
     }
 
     return (
-        <div className="col" style={{ border: '1px solid blue' }}>
+        <div className="col"
+            onClick={() =>
+                props.setActive(props.containerIndex, props.rowIndex, props.index)
+            }>
             <TextEdit content={content} updateContent={updateContent} />
         </div>
     );

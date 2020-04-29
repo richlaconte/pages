@@ -6,7 +6,7 @@ export default function Row(props) {
     //const [page, setPage] = useState([]);
 
     return (
-        <div className="row" style={{ border: '5px solid green' }}>
+        <div className="row" >
             {
                 props.row.cols.map((col, index) =>
                     <Col
@@ -16,6 +16,7 @@ export default function Row(props) {
                         rowIndex={props.index}
                         col={col}
                         updates={props.updates}
+                        setActive={props.setActive}
                     />)
             }
             <button onClick={() => props.updates.appendCol(props.containerIndex, props.index)}>Add Col</button>
