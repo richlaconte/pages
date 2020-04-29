@@ -10,6 +10,12 @@ function App() {
   const [page, setPage] = useState({
     containers: []
   });
+  const [currentCol, setCurrentCol] = useState('');
+
+  const newCurrentCol = (col) => {
+    setCurrentCol(col);
+  }
+
 
   const appendContainer = () => {
     let newPage = { ...page };
@@ -38,9 +44,9 @@ function App() {
     setPage(newPage);
   }
 
-  const updateColContent = (container, row, col, content) => {
+  const updateColContent = (container, row, col, newContent) => {
     let newPage = { ...page };
-    newPage.containers[container].rows[row].cols[col].content = content;
+    newPage.containers[container].rows[row].cols[col].content = newContent;
     setPage(newPage);
   }
 
@@ -64,7 +70,7 @@ function App() {
     <div className="App">
       <Toolbar />
       <Preview page={page} updates={updates} />
-      <TextEdit />
+      <TextEdit content={'test'} newCurrentCol={newCurrentCol} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function TextEditToolBar(props) {
     //const [text, setText] = useState('test');
 
     return (
-        <div style={{ position: 'absolute', top: '-20px', backgroundColor: 'grey' }}>
+        <div style={{ backgroundColor: 'grey' }} onClick={() => console.log('test')}>
             Toolbar
         </div>
     )

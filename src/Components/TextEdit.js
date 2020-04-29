@@ -4,7 +4,13 @@ import TextEditToolBar from './TextEditToolBar';
 export default function TextEdit(props) {
 
     const testStyle = {
-        textAlign: 'center'
+        textAlign: 'center',
+        border: 'none',
+        display: 'inline',
+        fontFamily: 'inherit',
+        fontSize: 'inherit',
+        padding: 'none',
+        width: '100%'
     }
 
     const [text, setText] = useState(props.content);
@@ -26,10 +32,9 @@ export default function TextEdit(props) {
 
     if (editing) {
         return (
-            <div className="col" style={{ border: '1px red dashed' }} >
-                <input value={text} style={style}
+            <div className="col" style={{ border: '1px red dashed' }} onBlur={(e) => setEditing(false)}>
+                <input value={props.content} style={style}
                     onChange={(e) => textChange(e.target.value)}
-                    onBlur={() => setEditing(false)}
                     autoFocus
                 ></input>
             </div>
@@ -37,7 +42,7 @@ export default function TextEdit(props) {
     } else {
         return (
             <div className="col" onClick={() => toggleEditing()} style={style}>
-                {text}
+                {props.content}
             </div>
         );
     }
